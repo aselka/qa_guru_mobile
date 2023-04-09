@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from selene.support.shared import browser
 from utils.attach import add_video
+from utils.attach import add_screenshot
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -37,4 +38,5 @@ def data_search():
     yield
 
     add_video(browser)
+    add_screenshot(browser)
     browser.quit()
