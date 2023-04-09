@@ -1,31 +1,46 @@
-import allure
-import allure_commons
 import pytest
-from selene.support.shared import browser
-from selene import support
+import allure
 from appium import webdriver
-import config
-from utils import attach
+from appium.options.android import UiAutomator2Options
+from pydantic import BaseModel
+import os
+from dotenv import load_dotenv
+from selene.support.shared import browser
+from utils.attach import add_video
+from utils.attach import add_screenshot
 
 
 @pytest.fixture(scope='function', autouse=True)
-def app():
-    browser.config.timeout = config.settings.timeout
+def data_search():
+    load_dotenv()
 
-    browser.config._wait_decorator = support._logging.wait_with(
-        context=allure_commons._allure.StepContext
-    )
-    browser.config.driver = webdriver.Remote(
-        config.settings.remote_url, options=config.settings.driver_options
-    )
+    class Settings(BaseModel):
+        load_dotenv()
+        userName: str = os.getenv('LOGIN')
+        accessKey: str = os.getenv('KEY')
+        remote_url: str = os.getenv('REMOTE')
+
+    settings = Settings()
+    options = UiAutomator2Options().load_capabilities({
+        "app": "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c",
+        "platformVersion": "9.0",
+        "deviceName": "Google Pixel 3",
+        'bstack:options': {
+            "projectName": "Second Python project",
+            "buildName": "browserstack-build-2",
+            "sessionName": "BStack second_test",
+            'userName': settings.userName,
+            'accessKey': settings.accessKey
+        }
+    })
+
+    browser.config.driver = webdriver.Remote(settings.remote_url, options=options)
 
     yield
 
-    attach.add_video(browser)
-    attach.add_screenshot(browser)
-
+    add_video(browser)
+    add_screenshot(browser)
     browser.quit()
-
 
 @pytest.fixture(scope='function', autouse=True)
 def add_labels():
