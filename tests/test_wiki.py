@@ -5,7 +5,6 @@ from selene.support.shared import browser
 from utils.app_locators import *
 
 
-@pytest.fixture()
 @allure.label('owner', 'bisengalieva')
 @allure.feature('Тесты Wikipedia')
 @allure.title('Результат поиска не пустой')
