@@ -35,7 +35,7 @@ env -S "context=emulation" pytest .
 
 ### <img width="3%" title="Jenkins" src="attachments/logo/jenkins.png"> Запуск проекта в Jenkins
 
-### [Job](https://jenkins.autotests.cloud/job/qa_guru_mobile1/)
+### [Job](https://jenkins.autotests.cloud/job/qa_guru_mobile_new/)
 
 ##### При нажатии на "Собрать сейчас" начнется сборка тестов и их прохождение
 
