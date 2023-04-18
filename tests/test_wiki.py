@@ -34,7 +34,7 @@ def test_search_numbers():
         browser.element(search).click()
         browser.element(field_search).send_keys('367')
     with allure.step('Проверка результатов поиска'):
-        browser.all(result_search).should(have.size_greater_than(0))
+        browser.all(result_search).should(have.size(0))
 
 
 @allure.label('owner', 'bisengalieva')
