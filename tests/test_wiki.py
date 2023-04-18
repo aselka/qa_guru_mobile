@@ -6,11 +6,6 @@ from utils.app_locators import *
 
 
 @pytest.fixture()
-def skip():
-    with allure.step('Пропуск стартовых экранов'):
-        browser.element(btn_skip).click()
-
-
 @allure.label('owner', 'bisengalieva')
 @allure.feature('Тесты Wikipedia')
 @allure.title('Результат поиска не пустой')
@@ -36,7 +31,7 @@ def test_empty_search():
 
 @allure.label('owner', 'bisengalieva')
 @allure.feature('Тесты Wikipedia')
-@allure.title('Переход на главную по кнопке "skip"')
-def test_skip_main_screens(skip):
+@allure.title('Переход на главный экран')
+def test_skip_main_screens():
     with allure.step('Проверка отображения главного экрана'):
         browser.element(ann_main_screen).should(have.text('Customize your Explore feed'))
