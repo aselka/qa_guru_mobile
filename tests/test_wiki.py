@@ -44,7 +44,7 @@ def test_search_should_find_results():
 def test_search_should_find_results():
     with allure.step('Переход на экран поиска и ввод искомого значения'):
         browser.element(search).click()
-        browser.element(field_search).send_keys('34567')
+        browser.element(field_search).send_keys('?%-')
     with allure.step('Проверка результатов поиска'):
         browser.all(result_search).should(have.size_greater_than(0))
 
