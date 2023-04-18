@@ -16,9 +16,7 @@
 </p>
 
 ### Что выполняет тест:
-
-- [x] Проверка стартового экрана
-- [x] Проверка поиска информации в приложении
+![This is an image](attachments/screenshots/test1.png)
 
 
 ### Видео о прохождении одного из тестов
@@ -46,4 +44,15 @@ env -S "context=emulation" pytest .
 ##### Где в реальном времени можно следить за прохождением теста через логи.
 
 ![This is an image](attachments/screenshots/browserstack.png)
+
+
+
+<!-- Telegram -->
+
+### <img width="3%" title="Telegram" src="attachments/logo/tg.png"> Telegram
+
+##### Настроен телеграм-бот, после прохождения тестов в Jenkins присылает уведомление с отчетом в Телеграм
+
+##### Скриншот отчета в телеграм
+![This is an image](attachments/screenshots/telegram2.png)
 
