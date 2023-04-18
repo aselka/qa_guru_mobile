@@ -31,7 +31,7 @@ def test_empty_search(skip):
         browser.element(field_search).send_keys('')
 
     with allure.step('Проверка результатов поиска'):
-        browser.all(result_search).should(have.size_greater_than(0))
+        browser.all(result_search).should(have.size(0))
 
 
 @allure.label('owner', 'bisengalieva')
