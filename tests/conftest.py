@@ -41,7 +41,3 @@ def data_search():
     add_video(browser)
     add_screenshot(browser)
     browser.quit()
-
-@pytest.fixture(scope='function', autouse=True)
-def add_labels():
-    allure.dynamic.label('owner', 'asel')
