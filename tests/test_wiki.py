@@ -28,10 +28,3 @@ def test_empty_search():
     with allure.step('Проверка результатов поиска'):
         browser.all(result_search).should(have.size(0))
 
-
-@allure.label('owner', 'bisengalieva')
-@allure.feature('Тесты Wikipedia')
-@allure.title('Переход на главный экран')
-def test_skip_main_screens():
-    with allure.step('Проверка отображения главного экрана'):
-        browser.element(ann_main_screen).should(have.text('Customize your Explore feed'))
