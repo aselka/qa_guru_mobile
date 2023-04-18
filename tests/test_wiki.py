@@ -1,4 +1,3 @@
-import pytest
 import allure
 from selene import have
 from selene.support.shared import browser
@@ -20,10 +19,32 @@ def test_search_should_find_results():
 @allure.feature('Тесты Wikipedia')
 @allure.title('Пустой поиск')
 def test_empty_search():
-    with allure.step('Поиск пустого значения'):
+    with allure.step('Переход на экран поиска и ввод искомого значения'):
         browser.element(search).click()
         browser.element(field_search).send_keys('')
 
     with allure.step('Проверка результатов поиска'):
         browser.all(result_search).should(have.size(0))
+
+
+@allure.label('owner', 'bisengalieva')
+@allure.feature('Тесты Wikipedia')
+@allure.title('Поиск цифр')
+def test_search_should_find_results():
+    with allure.step('Переход на экран поиска и ввод искомого значения'):
+        browser.element(search).click()
+        browser.element(field_search).send_keys('34567')
+    with allure.step('Проверка результатов поиска'):
+        browser.all(result_search).should(have.size_greater_than(0))
+
+
+@allure.label('owner', 'bisengalieva')
+@allure.feature('Тесты Wikipedia')
+@allure.title('Поиск символов')
+def test_search_should_find_results():
+    with allure.step('Переход на экран поиска и ввод искомого значения'):
+        browser.element(search).click()
+        browser.element(field_search).send_keys('34567')
+    with allure.step('Проверка результатов поиска'):
+        browser.all(result_search).should(have.size_greater_than(0))
 
