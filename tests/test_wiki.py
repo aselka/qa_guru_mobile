@@ -14,7 +14,7 @@ def skip():
 @allure.label('owner', 'bisengalieva')
 @allure.feature('Тесты Wikipedia')
 @allure.title('Результат поиска не пустой')
-def test_search_should_find_results(skip):
+def test_search_should_find_results():
     with allure.step('Переход на экран поиска и ввод искомого значения'):
         browser.element(search).click()
         browser.element(field_search).send_keys('QA GURU')
@@ -25,7 +25,7 @@ def test_search_should_find_results(skip):
 @allure.label('owner', 'bisengalieva')
 @allure.feature('Тесты Wikipedia')
 @allure.title('Пустой поиск')
-def test_empty_search(skip):
+def test_empty_search():
     with allure.step('Поиск пустого значения'):
         browser.element(search).click()
         browser.element(field_search).send_keys('')
